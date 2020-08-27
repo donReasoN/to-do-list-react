@@ -1,0 +1,36 @@
+.section {
+    margin: 20px 0;
+    background-color: #fff;
+    box-shadow: 1px 3px 6px #aaa;
+}
+
+.section__container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding-right: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+
+@media(max-width: 500px) {
+    .section__container {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+}
+
+.section__header {
+    padding: 20px;
+    margin: 0;
+}
+
+@media(max-width: 500px) {
+    .section__header {
+        text-align: center;
+    }
+}
+
+.section__body {
+    padding: 20px;
+}

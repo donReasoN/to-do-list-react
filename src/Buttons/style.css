@@ -1,0 +1,45 @@
+.buttons {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 10px;
+}
+
+.button {
+    width: 140px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.toggleHideTasks,
+.toggleDoneTasks {
+    height: 40px;
+    border: 1px solid #606060;
+    border-radius: 5px;
+    background-color: transparent;
+    color: #606060;
+}
+
+.button:hover {
+    background-color: #606060;
+    color: #eee;
+}
+
+.button:disabled {
+    background-color: transparent;
+    color: #606060;
+    border: none;
+}
+
+@media(max-width: 500px) {
+    
+    .button {
+        width: 100%;
+    }
+
+    .buttons {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-gap: 10px;
+    }
+}
+
