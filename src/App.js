@@ -6,18 +6,23 @@ import Section from "./Section";
 import Header from "./Header";
 import Container from "./Container";
 
-const tasks = [
-  { id: 1, content: "Eat breakfast", done: true },
-  { id: 2, content: "Do exercises", done: false },
-];
-
-
 
 function App() {
   const [hideDoneTasks, setHideDoneTask] = useState(false);
-  
+  const [tasks, setTasks] = useState([
+    { id: 1, content: "Eat breakfast", done: true },
+    { id: 2, content: "Do exercises", done: false },
+  ]);
+
   const toogleHideDoneTasks = () => { 
     setHideDoneTask(hideDoneTasks => !hideDoneTasks);
+  }
+
+  const markAllTaskDone = () => {
+    setTasks(tasks => tasks.map(task => ({
+      ...task,
+      done: true,
+    })))
   }
   
 
@@ -36,6 +41,7 @@ function App() {
             tasks={tasks} 
             hideDoneTasks={hideDoneTasks} 
             toogleHideDoneTasks={toogleHideDoneTasks}
+            markAllTaskDone={markAllTaskDone}
             />} 
           sectionBody={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks}/>}
         />
