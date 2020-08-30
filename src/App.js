@@ -40,11 +40,11 @@ function App() {
     }));
   } 
 
-  const addNewTask = (content) => {
+  const addNewTask = (newTaskContent) => {
     setTasks( tasks => [
       ...tasks, 
       {
-        content,
+        content: newTaskContent,
         done: false,
         id: tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1,
       }
