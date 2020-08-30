@@ -12,6 +12,7 @@ function App() {
   const [tasks, setTasks] = useState([
     { id: 1, content: "Eat breakfast", done: true },
     { id: 2, content: "Do exercises", done: false },
+  
   ]);
 
   const toogleHideDoneTasks = () => { 
@@ -27,7 +28,17 @@ function App() {
   
   const removeTask = (id) => {
     setTasks(tasks => tasks.filter(task => task.id !== id));
-    } 
+  } 
+
+  const toogleTaskDone = (id) => {
+    setTasks(tasks => tasks.map(task => {
+      if(task.id === id) {
+        return {...task, done: !task.done};
+      }
+
+      return task;
+    }));
+  } 
 
 
   return (
@@ -52,6 +63,7 @@ function App() {
               tasks={tasks} 
               hideDoneTasks={hideDoneTasks}
               removeTask={removeTask}
+              toogleTaskDone={toogleTaskDone}
             />}
         />
     </Container>

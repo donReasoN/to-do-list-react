@@ -1,7 +1,7 @@
 import React from "react";
 import "./style.css";
 
-const Tasks = ({tasks, hideDoneTasks, removeTask}) => (
+const Tasks = ({tasks, hideDoneTasks, removeTask, toogleTaskDone}) => (
 
     <ul className="tasks">
         {tasks.map(task => (
@@ -12,7 +12,9 @@ const Tasks = ({tasks, hideDoneTasks, removeTask}) => (
                 ? " tasks__item--hidden" 
                 : ""}`}>
             
-            <button className="tasks__button tasks__button--done">
+            <button 
+                onClick={() => toogleTaskDone(task.id)}
+                className="tasks__button tasks__button--done">
                 <span className={`tasks__icon ${task.done ? "fas fa-check" : ""}`}></span>
             </button>
 
