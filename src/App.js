@@ -25,6 +25,9 @@ function App() {
     })))
   }
   
+  const removeTask = (id) => {
+    setTasks(tasks => tasks.filter(task => task.id !== id));
+    } 
 
 
   return (
@@ -38,12 +41,18 @@ function App() {
           title="To-do list" 
           extraHeaderContent={
             <Buttons 
-            tasks={tasks} 
-            hideDoneTasks={hideDoneTasks} 
-            toogleHideDoneTasks={toogleHideDoneTasks}
-            markAllTaskDone={markAllTaskDone}
-            />} 
-          sectionBody={<Tasks tasks={tasks} hideDoneTasks={hideDoneTasks}/>}
+              tasks={tasks} 
+              hideDoneTasks={hideDoneTasks} 
+              toogleHideDoneTasks={toogleHideDoneTasks}
+              markAllTaskDone={markAllTaskDone}
+            />}
+
+          sectionBody={
+            <Tasks 
+              tasks={tasks} 
+              hideDoneTasks={hideDoneTasks}
+              removeTask={removeTask}
+            />}
         />
     </Container>
   );
